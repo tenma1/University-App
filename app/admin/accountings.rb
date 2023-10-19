@@ -38,4 +38,4 @@ ActiveAdmin.register Accounting do
     end
   end
   
-end
+end  
