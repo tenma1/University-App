@@ -1,0 +1,45 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page"><%= @letter.title %></li>
+  </ol>
+
+  <ul class="nav justify-content-end bg-warning">
+    <li class="nav-item">
+      <a class="nav-link text-dark" href="/colleges">Colleges</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-dark" href="/schools">Schools</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-dark" href="/hostels">Hostels</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-dark" href="/news_letters">News Letters</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-dark active" href="#">Events</a>
+    </li>
+  </ul>
+</nav>
+
+<h1><%= @letter.title %></h1>
+
+<% if (@letter.colleges).present? %>
+  <% @letter.colleges.each do |college| %>
+    <h3><%= link_to college.name, college_path(college.id) %></h3>
+  <% end %>
+<% end %>
+<% if (@letter.schools).present? %>
+  <% @letter.schools.each do |school| %>
+  <h3><%= @letter.schools.name %></h3>
+  <% end %>
+  <% end %>
+<% if (@letter.hostels).present? %>
+  <h3><%= @letter.hostels.name %></h3>
+<% end %>
+
+<p><%= @letter.brief_info %></p>
+<p><%= @letter.detailed_info %></p>
+
+<p><a href='/news_letters' >All Letters</a></p>

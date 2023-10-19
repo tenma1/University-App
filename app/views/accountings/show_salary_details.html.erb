@@ -1,0 +1,8 @@
+<h2>Salary Details</h2>
+<h3>Total Salary: <#%= CAN NOT BE DISPLAYED (UNAUTHORISED) %></h3>
+<h3>Tuition Fees Due: <%= current_user&.accounting&.current_due %></h3>
+<h3>Other Charges: <%= current_user&.accounting&.other_charges %></h3>
+<h3>Other Charges' Details: <%= current_user&.accounting&.other_details %></h3>
+<h3>Total Dues: <%= current_user&.accounting&.current_due + current_user&.accounting&.other_charges rescue nil%></h3>
+
+<a class="btn btn-primary" href="/payment_online" role="button">Pay Fee</a>

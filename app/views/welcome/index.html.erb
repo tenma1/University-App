@@ -1,0 +1,228 @@
+<style>
+.container-fluid{
+  background-color: lightpink;
+}
+
+.navbar{
+  background-color: #f7ebe3!important;
+}
+#vertical-nav {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: #f7ebe3;
+    position: absolute;
+    height: 70%;
+}
+.vertical-nav-items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: black;
+    font-size: 1vw;
+    padding-top: 4%;
+    padding-bottom: 10%;
+    background-color: greenyellow;
+}
+.vertical-nav-items:hover {
+    color: dodgerblue;
+    background-color: #f7ebe3;
+}
+
+/*#loginbutton
+{
+  background-color: rgba(255, 255, 255, 0.7);
+  color: #DC3545;
+  position: fixed;
+  bottom: 100px;
+  left: 80%;
+  right: 10%;
+  border-radius: 35px;
+  cursor: pointer;
+  border-width: medium;
+}
+
+#logoutbutton 
+{
+  background-color: rgba(255, 255, 255, 0.7);
+  color: #DC3545;
+  position: fixed;
+  bottom: 100px;
+  left: 80%;
+  right: 10%;
+  border-radius: 35px;
+  cursor: pointer;
+  border-width: medium;
+}*/
+
+.login_signout
+{
+  background-color: rgba(255, 255, 255, 0.7);
+  color: #DC3545;
+  position: fixed;
+  bottom: 100px;
+  left: 80%;
+  right: 10%;
+  border-radius: 35px;
+  cursor: pointer;
+  border-width: medium;
+}
+</style>
+
+<section>
+  <div class="container-fluid px-0">
+    <div class="row g-0">
+
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item active" aria-current="page">Home</li>
+        </ol>
+
+
+
+        <nav class="navbar navbar-light bg-light">
+          <ul style="list-style: none;"><li>
+            Follow Us
+            <a class="navbar-brand" href="#">
+              <img src="<%= image_path('twitter_logo.jpeg')%>" width="30" height="30" alt="">
+              </a>
+              <a class="navbar-brand" href="#">
+              <img src="<%= image_path('facebook_logo.png')%>" width="30" height="30" alt=""></a>
+              <a class="navbar-brand" href="#">
+              <img src="<%= image_path('instagram_logo.jpeg')%>" width="30" height="30" alt=""></a>
+              <a class="navbar-brand" href="#">
+              <img src="<%= image_path('mail_logo.png')%>" width="30" height="30" alt="">
+            </a></li>
+          </ul>
+
+          <ol class="nav justify-content-end">
+            <li class="nav-item">
+              <a class="badge badge-pill badge-danger text-light" href="/colleges">Colleges</a>
+            </li>
+            <li class="nav-item">
+              <a class="badge badge-pill badge-danger text-light" href="/schools">Schools</a>
+            </li>
+            <li class="nav-item">
+              <a class="badge badge-pill badge-danger text-light" href="/hostels">Hostels</a>
+            </li>
+            <li class="nav-item">
+              <a class="badge badge-pill badge-danger text-light" href="#">Events</a>
+            </li>
+
+            <!-- <form class="form-inline justify-content-end" action= "/search" method="get">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form> -->
+
+            <form class="form-inline justify-content-end" action= "/search" method="get">
+            <%= form_tag do %>
+              <%= select_tag :search_category, options_for_select(@collection, @collection[0]) %>
+              <%= search_field_tag :search_key %>
+              <%= submit_tag("Search") %>
+            <% end %>
+            </form>
+          </ol>
+        </nav>
+      </nav>
+
+
+      <!-- First Column -->
+      <div class="col-lg-2 vh-70">
+        <!-- <nav class="nav flex-column nav-badge-pills" style="">
+          <li class="nav-item">
+            <a class="badge badge-pill badge-danger text-light" href="/colleges">Colleges</a>
+          </li><br>
+          <li class="nav-item">
+            <a class="badge badge-pill badge-danger text-light" href="/schools">Schools</a>
+          </li><br>
+          <li class="nav-item">
+            <a class="badge badge-pill badge-danger text-light" href="/hostels">Hostels</a>
+          </li><br>
+          <li class="nav-item">
+            <a class="badge badge-pill badge-danger text-light" href="#">Events</a>
+          </li><br>
+        </nav> -->
+
+        <nav id="vertical-nav">
+          <a href="#" class="vertical-nav-items">
+            <p class="fa fa-home"></p><p>Home</p></a>
+
+          <a href="#about-row" class="vertical-nav-items">
+            <i class="fa fa-user"></i><p>About</p></a>
+
+          <a href="#contact-container" class="vertical-nav-items">
+            <i class="fa fa-eye"></i><p>Contact</p></a>
+
+          <button class="vertical-nav-items" onclick="document.getElementById('id01').style.display='block'"><i class="fa fa-envelope"></i>Login</button><br>
+
+          <button class="vertical-nav-items" onclick="document.getElementById('id02').style.display='block'"><i class="fa fa-envelope"></i>Admin</button>
+        </nav>
+      </div>
+            <!-- First Column End -->
+
+      <!-- Second Column -->
+      <div class="col-lg-10 vh-70">
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+
+          <div class="carousel-inner shadow-5-strong" >
+            <!-- style="border-bottom-left-radius: 4rem" -->
+            
+            <div class="carousel-item active">
+              <img class="d-block vh-100 vw-100 object-cover" src="<%= image_path("University1.jpeg")%>" alt="First slide"> 
+            </div>
+
+            <div class="card text-dark mb-1" style="width: 25rem; height: 13rem; margin: 7%">
+              <img src="<%= image_path("bright_clouds.jpeg")%>" class="card-img" alt="Card image">
+                <div class="card-img-overlay">
+                  <div class="card-header text-dark">
+                    <h5 class="card-title">News Window</h5>
+                  </div>
+                  <div class="card-text">
+                    <h6 class="card-subtitle mb-2 ">News Title</h6>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content with some <a href='#' class="card-link text-danger">link</a>.</p>
+                  </div>
+                  <div class="card-footer">
+                    <a href='/news_letters' class="card-link text-dark" >All News Letters</a>
+                    <a href='#' class="card-link text-dark">Subscribe</a>
+                  </div>
+
+                </div>
+            </div>
+
+            <div class="login_signout">
+            <% if !user_signed_in? %>
+              <a href="/users/sign_up" class="btn btn-lg btn-danger active" id="loginbutton">Login/SignUp</a>
+            <% else %>
+              <a href="/sign_out" class="btn btn-lg btn-danger active" id="logoutbutton">Log Out</a>
+              <%#= button_to "Logout", destroy_user_session_path, method: :delete, id: "logoutbutton" %>
+            <% end %>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+      <!-- Second Column End -->
+    </div>
+  </div>
+</section>
+
+<!-- <div class="card" style="width: 18rem;">
+  <img class="card-img-top" src=".../100px180/?text=Image cap" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Cras justo odio</li>
+    <li class="list-group-item">Dapibus ac facilisis in</li>
+    <li class="list-group-item">Vestibulum at eros</li>
+  </ul>
+  <div class="card-body">
+    <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a>
+  </div>
+</div> -->

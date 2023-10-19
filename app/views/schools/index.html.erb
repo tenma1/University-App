@@ -1,0 +1,58 @@
+
+<nav aria-label="breadcrumb">
+  
+  <ul class="breadcrumb justify-content-start">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Schools</li>
+  </ul>
+
+  <ul class="nav justify-content-end bg-info">
+    <li class="nav-item">
+      <a class="nav-link text-dark" href="/colleges">Colleges</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-dark" href="/hostels">Hostels</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-dark active" href="#">Events</a>
+    </li>
+  </ul>
+  <h1>Schools</h1>
+</nav>
+
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+
+    <div class="carousel-item">
+      <img class="d-block w-100 h-50" src="<%= image_path("college_student1.jpg")%>" alt="First slide">
+    </div>
+    <div class="carousel-item active">
+      <img class="d-block w-100" src="<%= image_path("college_students2.jpeg")%>" alt="Second slide">
+    </div>
+
+    <div class="card-deck row">
+      <% @schools.each do |school| %>
+        <%#= link_to school.name, school %>
+        <div class="card bg-dark text-light mb-1" style="width: 18rem; margin: 2%">
+          <img src="<%= image_path("University.jpg")%>" class="card-img" alt="Card image">
+            <div class="card-img-overlay">
+              <div class="card-block">
+              <div class="card-header">
+                <h5 class="card-title"><%=school.name%></h5>
+              </div>
+              <div class="card-text">
+                <h6 class="card-subtitle mb-2 text-muted"><%=school.medium%></h6>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              </div>
+              <div class="card-footer text-muted">
+                <% a = school.id %>
+                <a href='<%= school_path(school.id)%>' class="card-link">More Info</a>
+              </div>
+            </div>
+            </div>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
+</div>

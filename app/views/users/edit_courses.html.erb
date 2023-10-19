@@ -1,0 +1,35 @@
+<h1>Add Courses</h1>
+<%# debugger %>
+
+
+<%= form_for current_user do |f| %>
+  <%= f.collection_check_boxes :course_ids, Course.order(:course_name), :id, :course_name %><br>
+<%= f.submit %>
+<% end %>
+
+<%#= form.collection_check_boxes :interest_ids, Interest.order(:name), :id, :name %>
+
+
+
+<!-- <%#= form_with model: current_user do |f| %>
+  <%# @courses.each do |course| %>
+  <%# if !current_user.courses.include?(course) %>
+    <%#= f.check_box :selected_course, { multiple: true }, course.id, nil %>
+    <%#= course.course_name %>
+  <%# end %>
+  <%# end %>
+  <%#= f.submit %>
+<%# end %>
+
+<%#= form_with model: user , method: :update , local: true do |f| %>
+  <%# @courses.each do |course| %>
+  <%# unless current_user.courses.include?(course) %>
+    <%#= f.check_box :selected_course, { multiple: true }, course.id, nil %>
+    <%#= course.course_name %>
+  <%# end %>
+  <%# end %>
+  <%#= f.submit %>
+<%# end %>
+
+############################################
+ -->

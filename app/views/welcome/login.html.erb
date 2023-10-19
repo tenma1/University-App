@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="loginpage.css">
+    <title>Login page in HTML</title>
+</head>
+
+<body>
+
+  <h1>Login Using Email</h1>
+
+  <form action='/login'>
+    <!-- Headings for the form -->
+    <div class='headingsContainer'>
+      <h3>Sign In</h3>
+      <p>Sign in with your UserName and Password</p>
+    </div>
+
+    <!-- Main Container for all inputs -->
+    <div class="mainContainer">
+      <!-- UserName -->
+      <label for="username">Your UserName</label>
+      <!-- Make sure to put 'required' for both input fields. -->
+      <input type="text" placeholder="Enter UserName" name="username" required>
+
+      <br><br>
+
+      <!-- Password -->
+      <label for="pswrd">Your Password</label>
+      <input type="password" placeholder="Enter Password" name="username" required>
+
+      <!-- sub-Container for the checkbox and forgot password link -->
+      <div class="subcontainer">
+        <label>
+          <input type="checkbox" checked="checked" name="remember"> Remember me
+        </label>
+        <p class="forgotpsd"><a href="#">Forgot Pasword?</a></p>
+      </div>
+
+      <div>
+      <!-- Submit Button -->
+      <button id="loginformbutton" type="submit">Login</button>
+      </div>
+      <!-- Sign Up Link -->
+      <p class="register">Not a member? <a href="#">Register here!</a></p>
+
+    </div>
+  </form>
+
+
+
+
+</body>

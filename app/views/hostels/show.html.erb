@@ -1,0 +1,40 @@
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item"><a href="/hostels">Hostels</a></li>
+    <li class="breadcrumb-item active" aria-current="page"><%=@hostel.name%></li>
+  </ol>
+
+  <ul class="nav justify-content-end bg-warning">
+    <li class="nav-item">
+      <a class="nav-link text-dark" href="/colleges">Colleges</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-dark" href="/schools">Schools</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-dark" href="/hostels">Hostels</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-dark active" href="#">Events</a>
+    </li>
+  </ul>
+</nav>
+
+<h1><%= @hostel.name %></h1>
+
+<p>Residential Type: <%= @hostel.residential_type %></p>
+
+<p>Capacity: <%= @hostel.capacity %></p>
+
+<p>Affiliated to: <%= @hostel.residable.name %></p>
+
+<h2>Facilities</h2>
+<%= render @hostel.facilities %>
+
+<% if (@hostel.gallery.present?) %>
+<h2>Images</h2>
+
+<%= render @hostel.gallery %>
+<% end %>

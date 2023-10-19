@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  capacity: 1
+  residential_type: MyString
+  residable: one
+  residable_type: Residable
+
+two:
+  name: MyString
+  capacity: 1
+  residential_type: MyString
+  residable: two
+  residable_type: Residable

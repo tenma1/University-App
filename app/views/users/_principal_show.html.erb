@@ -1,0 +1,17 @@
+
+<div class="sub_Container", style="padding-left: 4%; margin-top: 1%;">
+  <% unless @all_students.blank? %>
+    <h4>Students' Section<h4>
+      <% @all_students.each do |sub_user| %>
+        <li><%= link_to sub_user.name, sub_user %></li>
+      <% end %>
+  <% end %>
+
+  <% unless @all_teachers.blank? %>
+    <h4>Teachers' Section</h4>
+    <% @all_teachers.each do |sub_user| %>
+      <span><%= link_to sub_user.name, sub_user %></span>
+    <% end %>
+  <% end %>
+</div>
+

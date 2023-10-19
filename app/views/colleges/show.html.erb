@@ -1,0 +1,40 @@
+<nav aria-label="breadcrumb">
+  <ul class="breadcrumb ">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item"><a href="/colleges">Colleges</a></li>
+    <li class="breadcrumb-item active" aria-current="page"><%=@college.name%></li>
+  </ul>
+
+  <ul class="nav justify-content-end bg-warning">
+    <li class="nav-item">
+      <a class="nav-link" href="/colleges">Colleges</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/hostels">Hostels</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" href="#">Events</a>
+    </li>
+  </ul>
+</nav>
+
+<h1><%= @college.name %></h1>
+
+<p>Disciipline: <%= @college.discipline %></p>
+
+<p>Address: <%= @college.address %></p>
+
+<p>City: <%= @college.city %></p>
+
+<p>Pin: <%= @college.pincode %></p>
+
+<p>Rating: <%= @college.rating %></p>
+
+<h2>Features</h2>
+<%= render @college.features %>
+
+<% if (@college.gallery.present?) %>
+<h2>Images</h2>
+
+<%= render @college.gallery %>
+<% end %>

@@ -1,0 +1,78 @@
+<!-- <style>
+.userprofile
+{
+  position: relative;
+  right: 0%;
+  border-radius: 15px;
+  cursor: pointer;
+  border-width: medium;
+}
+</style> -->
+
+
+<div class="main_container">
+  <nav aria-label="breadcrumb">
+    <ul class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page"></li>
+
+      <ul class="userprofile justify-content-end">
+        <div class="btn-group">
+          <% if user_signed_in? %>
+            <button type="button" class="btn btn-light"><%= current_user.name %>'s Profile</button>
+            <button type="button" class="btn btn-light dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              
+            </button>
+            <div class="dropdown-menu">
+              <li><%= link_to 'Edit Profile', edit_user_path, class: 'editprofilebutton' %>
+              <a href="/users/edit">Edit Mail/Password</a><%# This is edit_user_registration_path %>
+              <a href="/sign_out">Log Out</a></li>
+          <% else %>
+            <a class="dropdown-item" href="<%= user_path(new_user_session_path) %>">Log In</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="<%= user_path(new_user_registration_path) %>">Sign Up</a>
+            </div> 
+          <% end %>
+        </div>
+      </ul>
+    </ul>
+
+    <ul class="nav justify-content-end bg-info">
+      <li class="nav-item">
+        <a class="nav-link text-dark" href="/schools">Schools</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-dark" href="/hostels">Hostels</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active text-dark" href="#">Events</a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="main_Info", style="padding-left: 4%; margin-top: 1%;">
+    <h2><%= current_user.name %></h2>
+    <h3>Age: <%= current_user.age %> yrs</h3>
+    <h3>Status: <%= current_user.institution_type %> <%= current_user.role.name %></h3>
+
+    <% if current_user&.institution_type == 'College' %>
+      <h3>Institute: <%=  current_user&.college&.name %></h3>
+    <% elsif current_user&.institution_type == 'School' %>
+      <h3>Institute: <%=  current_user&.school&.name %></h3>
+    <% end %>
+  </div>
+
+  <% if current_user.role.name == 'Visitor' %>
+    <p>Hello Visitor</p>
+  <% elsif current_user.role.name == 'Principal' %>
+    <%= render "principal_show" %>
+  <% elsif current_user.role.name == 'Student' %>
+    <%= render "students_show" %>
+  <% elsif current_user.role.name == 'Teacher' %>
+    <%= render "teachers_show" %>
+  <% end %>
+
+  <% if @sub_user %>
+    <%= render 'user_profile'%>
+  <% end %>
+</div>

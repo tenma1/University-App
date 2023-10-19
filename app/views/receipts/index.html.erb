@@ -1,0 +1,9 @@
+<h1>All Receipts</h1>
+
+<ul>
+  <% @receipts.each do |receipt| %>
+    <li>
+      <%= link_to receipt.created_at, receipt %>
+    </li>
+  <% end %>
+</ul>

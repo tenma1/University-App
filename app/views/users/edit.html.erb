@@ -1,0 +1,57 @@
+<h3>Edit Info</h3>
+<% debugger %>
+<%= form_with model: current_user do |f| %>
+  <%= render "users/shared/error_messages", resource: current_user %>
+
+    <div class="name_field">
+      <%= f.label :name %><br />
+      <%= f.text_field :name %>
+    </div>
+
+    <div class="age_field">
+      <%= f.label :age %><br />
+      <%= f.text_field :age %>
+    </div><br>
+
+    <div class="Institution">
+      <%= f.label :institution_type, as: 'Institution Type' %>
+      <%= f.select :institution_type, options_for_select(['College'], ['School']) %>
+    </div><br>
+
+    <div class="College_field">
+      <%= f.label :college_id, as: 'College' %>
+      <%= f.collection_select :college_id, College.all,:id,:name  %>
+    </div><br/>
+
+    <div class="School_field">
+      <%= f.label :school_id, as: 'School' %>
+      <%= f.collection_select :school_id, School.order(:name),:id,:name, default: '' %>
+    </div><br/>
+
+    <div class="Teacher_Student">
+      <%= f.label :discipline %>
+      <%= f.text_field :discipline %>
+    </div><br>
+
+    <div class="Teacher">
+      <%= f.label :Subject %>
+      <%= f.text_field :subject %>
+    </div><br/>
+
+    <div class="Student">
+      <%= f.label :Standard %>
+      <%= f.text_field :standard %>
+    </div><br/>
+
+    <div class="Student_Warden">
+      <%= f.label :Hostel %>
+      <%= f.collection_select :hostel_id, Hostel.order(:name),:id,:name, default: '' %><br>
+    </div>
+
+    <div class="actions">
+    <%= f.submit "Update" %>
+  </div>
+<% end %>
+
+<%= link_to "Back", :back %>
+</div>

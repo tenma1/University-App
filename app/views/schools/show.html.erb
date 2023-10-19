@@ -1,0 +1,40 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item"><a href="/schools">Schools</a></li>
+    <li class="breadcrumb-item active" aria-current="page"><%=@school.name%></li>
+  </ol>
+
+  <ul class="nav justify-content-end bg-warning">
+    <li class="nav-item">
+      <a class="nav-link" href="/colleges">Colleges</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/hostels">Hostels</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" href="#">Events</a>
+    </li>
+  </ul>
+</nav>
+
+<h1><%= @school.name %></h1>
+
+<p>Disciipline: <%= @school.medium %></p>
+
+<p>Address: <%= @school.address %></p>
+
+<p>City: <%= @school.city %></p>
+
+<p>Pin: <%= @school.pincode %></p>
+
+<p>Rating: <%= @school.rating %></p>
+
+<h2>Features</h2>
+<%= render @school.features %>
+
+<% if (@school.gallery.present?) %>
+<h2>Images</h2>
+
+<%= render @school.gallery %>
+<% end %>

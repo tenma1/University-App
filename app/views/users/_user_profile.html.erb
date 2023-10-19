@@ -1,0 +1,23 @@
+<h2>Name: <%= @sub_user.name %></h2>
+<p>
+Mail: <%= @sub_user.email %><br>
+Age: <%= @sub_user.age %><br>
+Status: <%= @sub_user.role.name %><br>
+Institution: <%= @sub_user.institution_type %><br>
+<% if @sub_user.institution_type == 'College' %>
+College: <%= @sub_user.college.name %><br>
+<% elsif @sub_user.institution_type == 'School' %>
+School: <%= @sub_user.school.name %><br>
+<% end %>
+<% if @sub_user.role.name == 'Teacher' %>
+Discipline: <%= @sub_user.discipline %><br>
+Subject: <%= @sub_user.subject %><br>
+<% elsif @sub_user.role.name == 'Student' %>
+Discipline: <%= @sub_user.discipline %><br>
+Standard: <%= @sub_user.standard %><br>
+Hostel: <%= @sub_user.hostel %><br>
+<% elsif @sub_user.role.name == 'Warden' %>
+Hostel: <%= @sub_user.hostel %><br>
+<% end %>
+Approved: <%= @sub_user.approved %>
+</p>

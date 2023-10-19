@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  total_value: 1
+  current_due: 1
+  credited: 1
+  other_details: MyString
+  other_charge: 1
+  details: MyString
+  user: one
+
+two:
+  total_value: 1
+  current_due: 1
+  credited: 1
+  other_details: MyString
+  other_charge: 1
+  details: MyString
+  user: two

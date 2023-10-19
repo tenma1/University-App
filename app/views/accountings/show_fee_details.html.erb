@@ -1,0 +1,23 @@
+<!--   # t.integer "total_value"
+  #   t.integer "current_due"
+  #   t.integer "credited"
+  #   t.string "other_details"
+  #   t.integer "other_charges"
+  #   t.string "details"
+  #   t.integer "user_id"
+
+
+  # Fees Details
+  # Pay Fee Online
+  # Other Charges Details
+  # Online Fee Transaction Status
+  # Fee Receipts
+ -->
+<h2>Fee Details</h2>
+<h3>Total Fees: <%= current_user&.accounting&.total_value %></h3>
+<h3>Fees Due: <%= current_user&.accounting&.current_due %></h3>
+<h3>Other Charges: <%= current_user&.accounting&.other_charges %></h3>
+<h3>Other Charge Details <%= current_user&.accounting&.other_details %></h3>
+<h3>Total Dues: <%= current_user&.accounting&.current_due + current_user&.accounting&.other_charges rescue nil%></h3>
+
+<a class="btn btn-primary" href="/payments_online" role="button">Pay Fee</a>

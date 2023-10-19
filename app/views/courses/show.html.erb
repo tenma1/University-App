@@ -1,0 +1,17 @@
+<h1>Courses</h1>
+
+<table>
+    <tr>
+      <th>Course Name </th>              
+      <th>Course Code </th>
+      <th>Course Credit </th>
+    </tr>
+
+  <% current_user.courses.each do |course| %>
+    <tr>
+      <td><%= course&.course_name %></td>
+      <td><%= course&.course_code %></td>
+      <td><%= course&.course_credit %></td>
+    </tr>
+  <% end %>
+</table>
